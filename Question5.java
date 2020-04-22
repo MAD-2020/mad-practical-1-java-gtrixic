@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Question5
+class Question5
 {
   public static void main(String[] args)
   {
@@ -27,6 +27,33 @@ public class Question5
      */
      
     Scanner in = new Scanner(System.in);
+    System.out.println("Enter the integer: ");
+    int integer = in.nextInt();
+
+    int mode = 0;
+    int maxcount = 0;
+
+    int[] list = new int[integer];
     
+    for (int i = 0; i<integer; i++)
+    {
+      int number = in.nextInt();
+      list[i] = number;
+      int count = 0;
+      for (int j = 0; j<integer; j++)
+      {
+        if (list[j] == list[i])
+        {
+          count+=1;
+        }
+        if (count > maxcount)
+        {
+          maxcount = count;
+          mode = list[i];
+        }
+      }
+    }
+    System.out.println(mode);
+    in.close();
   }
 }
